@@ -8,7 +8,7 @@ const firebase = require("firebase");
 const db = firebase.firestore();
 
 //reference a specific collection
-const blogposts = db.collection("blog posts");
+const blogposts = db.collection("cafePosts");
 
 const post = `
 <form action="/create/post">
@@ -29,10 +29,12 @@ router.get("/submit", (req, res) => {
   const queryParams = req.query; //query params: ?title=words&author=words&text=words
 
   //custom IDs for our post...
-  const idFromTitle = queryParams.title.replace(/\s+/g, "-").toLowerCase();
+  const idFromCafeName = queryParams.cafeName
+    .replace(/\s+/g, "-")
+    .toLowerCase();
 
   cafePosts
-    .doc(idFromTitle) //allow you to create new posts or update them....
+    .doc(idFromCafeName) //allow you to create new posts or update them....
     .set(queryParams)
     .then(function (doc) {
       res.send("successful submission");

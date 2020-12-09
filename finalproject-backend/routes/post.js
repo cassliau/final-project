@@ -19,7 +19,7 @@ router.get("/:id", (req, res) => {
   //get the query parameter from the URL and set it to a variable
   const queryId = req.params.id;
   //query the collection
-  blogposts
+  cafePosts
     .doc(queryId) //looking up document by id
     .get()
     .then(function (doc) {
