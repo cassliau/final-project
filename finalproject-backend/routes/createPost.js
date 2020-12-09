@@ -1,4 +1,4 @@
-//create blogpost
+//create post
 const express = require("express");
 const router = express.Router();
 //require firebase
@@ -10,17 +10,19 @@ const db = firebase.firestore();
 //reference a specific collection
 const blogposts = db.collection("blog posts");
 
-const form = `
-<form action="/create/submit">
-    <input type="text" name= "title" placeholder = "Title of Post"/>
-    <input type="text" name= "author" placeholder = "Author"/>
-    <input type="text" name= "text" placeholder = "Text"/>
-    <button type ="submit"> Submit </button>
+const post = `
+<form action="/create/post">
+    <input type="text" name= "cafeName" placeholder = "Cafe Name"/>
+    <input type="text" name= "neighborhood" placeholder = "Neighborhood"/>
+    <input type="range" name= "ratingCoffee" min="1" max="5"/> Coffee Rating
+    <input type="range" name= "ratingVibe" min="1" max="5" "/> Vibe Rating
+    <input type="range" name= "ratingSpace" min="1" max="5" "/> Space Rating
+    <button type ="post"> Post </button>
 </form>
 `;
 
 //default route serves form
-router.get("/", (req, res) => res.send(form));
+router.get("/", (req, res) => res.send(post));
 
 //route for submitting the form...
 router.get("/submit", (req, res) => {
@@ -29,7 +31,7 @@ router.get("/submit", (req, res) => {
   //custom IDs for our post...
   const idFromTitle = queryParams.title.replace(/\s+/g, "-").toLowerCase();
 
-  blogposts
+  cafePosts
     .doc(idFromTitle) //allow you to create new posts or update them....
     .set(queryParams)
     .then(function (doc) {
