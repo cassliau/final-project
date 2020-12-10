@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
+import { Route, BrowserRouter as Router, Redirect } from "react-router-dom";
+
 import axios from "axios";
+import Header from "../components/Header";
 
 function Home() {
   const [cafeAPIData, setCafeAPIData] = useState([]);
 
   useEffect(() => {
     axios
-      .get(`https://mysterious-depths-41145.herokuapp.com/`)
+      .get(`http://localhost:4000/`)
       .then(function (response) {
         if (response.data) {
           setCafeAPIData(response.data);

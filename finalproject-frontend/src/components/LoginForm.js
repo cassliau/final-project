@@ -4,13 +4,15 @@ function LoginForm({ LoginFunction }) {
   return (
     <div>
       <form className="SignupForm" onSubmit={(e) => LoginFunction(e)}>
-        <label htmlFor="loginEmail">Email</label>
+        <label className="loginEmail" htmlFor="loginEmail">
+          Email
+        </label>
         <input type="email" name="loginEmail" />
-
-        <label htmlFor="loginPassword">Password</label>
+        <label className="loginPassword" htmlFor="loginPassword">
+          Password
+        </label>
         <input type="password" name="loginPassword" />
-
-        <button>Submit</button>
+        <button className="LoginFormButton"> Login </button>
       </form>
     </div>
   );

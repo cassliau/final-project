@@ -4,7 +4,7 @@ import LoginForm from "../components/LoginForm";
 //page for logging in
 function Login({ LoginFunction }) {
   return (
-    <div>
+    <div className="loginForm">
       <h1>Login</h1>
       <LoginForm LoginFunction={LoginFunction} />
     </div>

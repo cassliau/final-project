@@ -6,7 +6,7 @@ function Header({ loggedIn, LogoutFunction }) {
       <nav>
         {loggedIn ? (
           <>
-            <a href="/">User Profile</a>
+            <a href="/user-profile">User Profile</a>
             <a onClick={() => LogoutFunction()}>Logout</a>
           </>
         ) : (

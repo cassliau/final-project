@@ -1,3 +1,102 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins);
+
 .App {
-  text: black;
+  font-family: Poppins;
+  font-size: 22px;
+  max-width: 1040px;
+  margin: 0 auto;
 }
+
+/* Header */
+
+.Header nav {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.Header a {
+  color: black;
+  font-size: 15px;
+  font-weight: bold;
+  margin: 10px;
+  text-decoration: none;
+}
+
+.Header nav a:hover {
+  color: #4a5568;
+}
+
+/* Login */
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.App h1 {
+  text-align: center;
+  color: #4a5568;
+  font-size: 30px;
+}
+
+/* Login Form */
+
+.LoginFormButton {
+  /* Login Form Button */
+  background: #cfab94;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  width: 347px;
+  height: 50px;
+  margin-top: 70px;
+}
+
+.SignupForm {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  line-height: 50px;
+}
+
+.loginEmail {
+  /* Login Form Email Label */
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  height: 50px;
+  color: #4a5568;
+}
+
+.loginForm input {
+  color: #4a5568;
+  font-size: 16px;
+}
+
+.loginPassword {
+  /* Login Form Password Label */
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  height: 50px;
+  color: #4a5568;
+}
+
+.SignupForm input {
+  /* Login Form Input Box */
+  border: 1px solid #e8e8e8;
+  box-sizing: border-box;
+  border-radius: 5px;
+  width: 350px;
+  height: 50px;
+}
+
+/* */
