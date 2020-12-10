@@ -20,28 +20,14 @@ function Home() {
 
   return (
     <div>
-      <h1>All Cafes</h1>
-      {cafeAPIData.map((cafe, i) => (
-        <div key={i}>
-          <h2>{cafe.cafeName}</h2>
-          <p>
-            By: {cafe.authorName}
-            <br />@{cafe.authorUsername}
-          </p>
-          <h3>
-            {cafe.neighborhood} <br />
-            {cafe.address} <br />
-          </h3>
-          <h3>Ratings</h3>
-          <p>
-            Overall: {cafe.rating[0].overall} <br />
-            Coffee: {cafe.rating[0].coffee} <br />
-            Menu: {cafe.rating[0].menu} <br />
-            Vibe: {cafe.rating[0].vibe} <br />
-            Space: {cafe.rating[0].space} <br />
-          </p>
-        </div>
-      ))}
+      <form action="http://localhost:4000/create/post" method="POST">
+        <input type="text" name="cafeName" placeholder="Cafe Name" />
+        <input type="text" name="neighborhood" placeholder="Neighborhood" />
+        <input type="range" name="ratingCoffee" min="1" max="5" /> Coffee Rating
+        <input type="range" name="ratingVibe" min="1" max="5" /> Vibe Rating
+        <input type="range" name="ratingSpace" min="1" max="5" /> Space Rating
+        <button type="submit"> Post </button>
+      </form>
     </div>
   );
 }

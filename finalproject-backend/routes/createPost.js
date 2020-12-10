@@ -8,18 +8,7 @@ const firebase = require("firebase");
 const db = firebase.firestore();
 
 //reference a specific collection
-const blogposts = db.collection("cafePosts");
-
-const post = `
-<form action="/create/post">
-    <input type="text" name= "cafeName" placeholder = "Cafe Name"/>
-    <input type="text" name= "neighborhood" placeholder = "Neighborhood"/>
-    <input type="range" name= "ratingCoffee" min="1" max="5"/> Coffee Rating
-    <input type="range" name= "ratingVibe" min="1" max="5" "/> Vibe Rating
-    <input type="range" name= "ratingSpace" min="1" max="5" "/> Space Rating
-    <button type ="post"> Post </button>
-</form>
-`;
+const cafePosts = db.collection("cafePosts");
 
 //default route serves form
 router.get("/", (req, res) => res.send(post));
@@ -43,6 +32,22 @@ router.get("/submit", (req, res) => {
       console.log("error", error);
       res.send("failed submission");
     });
+});
+
+router.post("/post", async (req, res) => {
+  try {
+    const dbResponse = await cafePosts.add({
+      cafeName: req.body["cafeName"],
+      neighborhood: req.body["neighborhood"],
+      ratingCoffee: req.body["ratingCoffee"],
+      ratingVibe: req.body["ratingCoffee"],
+      ratingSpace: req.body["ratingSpace"],
+    });
+    res.status(201).send("Success");
+  } catch (err) {
+    console.log(err);
+    res.status(400).send("FAILURE");
+  }
 });
 
 module.exports = router;

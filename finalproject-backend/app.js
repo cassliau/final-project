@@ -1,7 +1,14 @@
 // Backend Application for Final Project
 const express = require("express");
+const cors = require("cors");
+const bodyParser = require("body-parser");
+
 const app = express();
+app.use(cors());
 const port = process.env.PORT || 4000;
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
 
 //add firebase (exercise 4)
 const firebaseConfig = {
