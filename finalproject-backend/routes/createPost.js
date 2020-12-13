@@ -8,7 +8,7 @@ const firebase = require("firebase");
 const db = firebase.firestore();
 
 //reference a specific collection
-const cafePosts = db.collection("cafePosts");
+const cafePosts = db.collection("cafeposts");
 
 //default route serves form
 router.get("/", (req, res) => res.send(post));

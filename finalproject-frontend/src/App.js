@@ -11,9 +11,11 @@ import "./App.css";
 import CreateAccount from "./containers/CreateAccount";
 import Home from "./containers/Home";
 import Login from "./containers/Login";
+import UserProfile from "./containers/UserProfile";
 
 //Components
 import Header from "./components/Header";
+import LandingPage from "./containers/LandingPage";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false); //boolean to determine if logged in
@@ -110,12 +112,19 @@ function App() {
     <div className="App">
       <Header loggedIn={loggedIn} LogoutFunction={LogoutFunction} />
       <Router>
+        <Route exact path="/">
+          {/* If someone is NOT logged in, take them to landing page*/}
+          {!loggedIn ? <LandingPage /> : <Redirect to="/home" />}
+        </Route>
+        <Route exact path="/home">
+          {!loggedIn ? <Redirect to="/" /> : <Home />}
+        </Route>
         <Route exact path="/login">
-          {/* If someone is logged in, do not take them to login page - take them to user profile*/}
+          {/* If someone is logged in, do not take them to login page - take them to home*/}
           {!loggedIn ? (
             <Login LoginFunction={LoginFunction} />
           ) : (
-            <Redirect to="/" />
+            <Redirect to="/home" />
           )}
         </Route>
         <Route exact path="/create-account">
@@ -123,12 +132,16 @@ function App() {
           {!loggedIn ? (
             <CreateAccount CreateAccountFunction={CreateAccountFunction} />
           ) : (
-            <Redirect to="/" />
+            <Redirect to="/home" />
           )}
         </Route>
-        <Route exact path="/">
+        <Route exact path="/user-profile">
           {/* If someone is NOT logged in, do not take them to user profile page - take them to login*/}
-          {!loggedIn ? <Redirect to="/login" /> : <Home user={userAuthInfo} />}
+          {!loggedIn ? (
+            <Redirect to="/" />
+          ) : (
+            <UserProfile userAuthInfo={userAuthInfo} />
+          )}
         </Route>
       </Router>
     </div>

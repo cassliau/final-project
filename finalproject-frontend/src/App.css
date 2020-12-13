@@ -99,4 +99,13 @@
   height: 50px;
 }
 
-/* */
+/* Welcome(Landing Page) */
+
+.LandingPage div {
+  display: flex;
+  flex-direction: row;
+}
+
+.LandingPage h1 {
+  align-content: left;
+}

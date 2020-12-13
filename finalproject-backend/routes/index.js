@@ -8,9 +8,9 @@ const firebase = require("firebase");
 const db = firebase.firestore();
 
 //reference specific collection
-const cafePosts = db.collection("cafePosts");
+const cafePosts = db.collection("cafeposts");
 
-router.get(`/`, (req, res) => {
+router.get(`/all-posts`, (req, res) => {
   //inside of this arrow function, we can do anything we want as long as we return at the end
 
   //init empty array
