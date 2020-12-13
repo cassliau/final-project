@@ -3,12 +3,37 @@ const router = express.Router();
 
 //require firebase
 const firebase = require("firebase");
+const { query } = require("express");
 
 //init firebase database
 const db = firebase.firestore();
 
 //reference specific collection
 const cafePosts = db.collection("cafeposts");
+
+router.get(`/posts/;id`, (req, res) => {
+  const cafePostsArray = [];
+
+  const queryId = req.params.id;
+
+  cafePosts
+    .where("authorID", "==", queryId)
+    .get()
+    .then((querySnapshot) => {
+      console.log("querySnapshot", querySnapshot);
+      //loop through query snapshot and push into array
+      querySnapshot.forEach((doc) => {
+        cafePostsArray.push(doc.data());
+      });
+      //return array
+      return res.send(cafePostsArray);
+    })
+    .catch(function (e) {
+      console.warn("error:", e);
+      //must return sth
+      return res.send(error);
+    });
+});
 
 router.get(`/all-posts`, (req, res) => {
   //inside of this arrow function, we can do anything we want as long as we return at the end

@@ -111,7 +111,11 @@ function App() {
 
   return (
     <div className="App">
-      <Header loggedIn={loggedIn} LogoutFunction={LogoutFunction} />
+      <Header
+        loggedIn={loggedIn}
+        LogoutFunction={LogoutFunction}
+        userAuthInfo={userAuthInfo}
+      />
       <Router>
         <Route exact path="/">
           {/* If someone is NOT logged in, take them to landing page*/}
@@ -148,13 +152,9 @@ function App() {
           )}
         </Route>
 
-        <Route exact path="/user-profile">
+        <Route exact path="/user-profile/:id">
           {/* If someone is NOT logged in, do not take them to user profile page - take them to login*/}
-          {!loggedIn ? (
-            <Redirect to="/" />
-          ) : (
-            <UserProfile userAuthInfo={userAuthInfo} />
-          )}
+          {!loggedIn ? <Redirect to="/" /> : <UserProfile />}
         </Route>
       </Router>
     </div>

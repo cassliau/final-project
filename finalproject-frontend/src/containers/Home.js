@@ -24,6 +24,7 @@ function Home() {
 
   return (
     <div>
+      <a href="/create-post">Create Post</a>
       <h1>All Cafe Posts</h1>
       {cafeAPIData.map((cafe, i) => (
         <CafeCard CafeData={cafe} key={i} />

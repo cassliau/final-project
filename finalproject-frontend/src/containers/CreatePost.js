@@ -4,7 +4,6 @@ import axios from "axios";
 function CreatePost({ userAuthInfo }) {
   function submitPost(e) {
     e.preventDefault();
-    const author = e.currentTarget.author.value;
     const authorID = userAuthInfo.uid;
     const cafeName = e.currentTarget.cafeName.value;
     const neighborhood = e.currentTarget.neighborhood.value;
@@ -14,7 +13,7 @@ function CreatePost({ userAuthInfo }) {
 
     axios
       .get(
-        `https://mysterious-depths-41145.herokuapp.com/create?author=${author}&authorID=${authorID}&cafeName=${cafeName}&neighborhood=${neighborhood}&ratingCoffee=${ratingCoffee}&ratingSpace=${ratingSpace}&ratingVibe=${ratingVibe}`
+        `https://mysterious-depths-41145.herokuapp.com/create?&authorID=${authorID}&cafeName=${cafeName}&neighborhood=${neighborhood}&ratingCoffee=${ratingCoffee}&ratingSpace=${ratingSpace}&ratingVibe=${ratingVibe}`
       )
       .then(function (response) {
         console.log({ SUCCESS: response });
