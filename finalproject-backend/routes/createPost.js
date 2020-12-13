@@ -1,21 +1,12 @@
-//create post
 const express = require("express");
 const router = express.Router();
-//require firebase
+
 const firebase = require("firebase");
-
-//init firestore database
 const db = firebase.firestore();
-
-//reference a specific collection
 const cafePosts = db.collection("cafeposts");
 
-//default route serves form
-router.get("/", (req, res) => res.send(post));
-
-//route for submitting the form...
-router.get("/submit", (req, res) => {
-  const queryParams = req.query; //query params: ?title=words&author=words&text=words
+router.get("/", (req, res) => {
+  const queryParams = req.query;
 
   //custom IDs for our post...
   const idFromCafeName = queryParams.cafeName
@@ -34,20 +25,20 @@ router.get("/submit", (req, res) => {
     });
 });
 
-router.post("/post", async (req, res) => {
-  try {
-    const dbResponse = await cafePosts.add({
-      cafeName: req.body["cafeName"],
-      neighborhood: req.body["neighborhood"],
-      ratingCoffee: req.body["ratingCoffee"],
-      ratingVibe: req.body["ratingCoffee"],
-      ratingSpace: req.body["ratingSpace"],
-    });
-    res.status(201).send("Success");
-  } catch (err) {
-    console.log(err);
-    res.status(400).send("FAILURE");
-  }
-});
+// router.post("/post", async (req, res) => {
+//   try {
+//     const dbResponse = await cafePosts.add({
+//       cafeName: req.body["cafeName"],
+//       neighborhood: req.body["neighborhood"],
+//       ratingCoffee: req.body["ratingCoffee"],
+//       ratingVibe: req.body["ratingCoffee"],
+//       ratingSpace: req.body["ratingSpace"],
+//     });
+//     res.status(201).send("Success");
+//   } catch (err) {
+//     console.log(err);
+//     res.status(400).send("FAILURE");
+//   }
+// });
 
 module.exports = router;

@@ -12,6 +12,7 @@ import CreateAccount from "./containers/CreateAccount";
 import Home from "./containers/Home";
 import Login from "./containers/Login";
 import UserProfile from "./containers/UserProfile";
+import CreatePost from "./containers/CreatePost";
 
 //Components
 import Header from "./components/Header";
@@ -116,9 +117,11 @@ function App() {
           {/* If someone is NOT logged in, take them to landing page*/}
           {!loggedIn ? <LandingPage /> : <Redirect to="/home" />}
         </Route>
+
         <Route exact path="/home">
           {!loggedIn ? <Redirect to="/" /> : <Home />}
         </Route>
+
         <Route exact path="/login">
           {/* If someone is logged in, do not take them to login page - take them to home*/}
           {!loggedIn ? (
@@ -127,6 +130,15 @@ function App() {
             <Redirect to="/home" />
           )}
         </Route>
+
+        <Route exact path="/create-post">
+          {!loggedIn ? (
+            <Redirect to="/login" />
+          ) : (
+            <CreatePost userAuthInfo={userAuthInfo} />
+          )}
+        </Route>
+
         <Route exact path="/create-account">
           {/* If someone is logged in, do not take them to create account page - take them to user profile*/}
           {!loggedIn ? (
@@ -135,6 +147,7 @@ function App() {
             <Redirect to="/home" />
           )}
         </Route>
+
         <Route exact path="/user-profile">
           {/* If someone is NOT logged in, do not take them to user profile page - take them to login*/}
           {!loggedIn ? (
