@@ -5,6 +5,7 @@ function CafeCard({ CafeData }) {
   return (
     <div>
       <h2>{CafeData.cafeName}</h2>
+      <p>by: {CafeData.author}</p>
       <h3>Neighborhood: {CafeData.neighborhood}</h3>
       <div>
         <h3>Ratings:</h3>

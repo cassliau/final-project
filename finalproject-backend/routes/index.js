@@ -11,7 +11,7 @@ const db = firebase.firestore();
 //reference specific collection
 const cafePosts = db.collection("cafeposts");
 
-router.get(`/posts/;id`, (req, res) => {
+router.get(`/posts/:id`, (req, res) => {
   const cafePostsArray = [];
 
   const queryId = req.params.id;
