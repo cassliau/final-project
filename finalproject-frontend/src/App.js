@@ -8,7 +8,7 @@ import "firebase/auth";
 import "./App.css";
 
 //Pages
-import CreateAccount from "./containers/CreateAccount";
+import SignUp from "./containers/SignUp";
 import Home from "./containers/Home";
 import Login from "./containers/Login";
 import UserProfile from "./containers/UserProfile";
@@ -89,7 +89,7 @@ function App() {
       });
   }
   //function for creating an account
-  function CreateAccountFunction(e) {
+  function SignUpFunction(e) {
     e.preventDefault();
     const email = e.currentTarget.createEmail.value;
     const password = e.currentTarget.createPassword.value;
@@ -143,10 +143,10 @@ function App() {
           )}
         </Route>
 
-        <Route exact path="/create-account">
+        <Route exact path="/sign-up">
           {/* If someone is logged in, do not take them to create account page - take them to user profile*/}
           {!loggedIn ? (
-            <CreateAccount CreateAccountFunction={CreateAccountFunction} />
+            <SignUp SignUpFunction={SignUpFunction} />
           ) : (
             <Redirect to="/home" />
           )}

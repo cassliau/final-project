@@ -6,14 +6,21 @@ function Header({ loggedIn, LogoutFunction, userAuthInfo }) {
       <nav>
         {loggedIn ? (
           <>
+            <a href="/create-post">Create Post</a>
             <a href="/home">Home</a>
             <a href={`/user-profile/${userAuthInfo.uid}`}>My Profile</a>
-            <a onClick={() => LogoutFunction()}>Logout</a>
+            <a className="logOutNav" onClick={() => LogoutFunction()}>
+              Logout
+            </a>
           </>
         ) : (
           <>
-            <a href="/login">Login</a>
-            <a href="/create-account">Create Account</a>
+            <a className="navLogin" href="/login">
+              Login
+            </a>
+            <a className="navSignUp" href="/sign-up">
+              Sign Up
+            </a>
           </>
         )}
       </nav>

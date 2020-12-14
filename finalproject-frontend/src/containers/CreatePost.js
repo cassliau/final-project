@@ -1,7 +1,10 @@
 import React from "react";
 import axios from "axios";
+import { Route, BrowserRouter as Router, Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 function CreatePost({ userAuthInfo }) {
+  const history = useHistory();
   function submitPost(e) {
     e.preventDefault();
     const author = e.currentTarget.author.value;
@@ -19,6 +22,7 @@ function CreatePost({ userAuthInfo }) {
         `https://mysterious-depths-41145.herokuapp.com/create?&author=${author}&authorID=${authorID}&cafeName=${cafeName}&neighborhood=${neighborhood}&ratingCoffee=${ratingCoffee}&ratingSpace=${ratingSpace}&ratingVibe=${ratingVibe}`
       )
       .then(function (response) {
+        history.push("/home");
         console.log({ SUCCESS: response });
       })
       .catch(function (error) {
@@ -27,9 +31,9 @@ function CreatePost({ userAuthInfo }) {
   }
 
   return (
-    <div>
+    <div className="createPost">
       <h1>Create Post</h1>
-      <form onSubmit={(e) => submitPost(e)}>
+      <form className="createPostForm" onSubmit={(e) => submitPost(e)}>
         <label>
           <input type="text" name="author" placeholder="Author" />
         </label>
@@ -39,17 +43,35 @@ function CreatePost({ userAuthInfo }) {
         <label>
           <input type="text" name="neighborhood" placeholder="Neighborhood" />
         </label>
+        <div className="ratings">
+          <label>
+            Coffee Rating
+            <input type="range" name="ratingCoffee" min="1" max="5" />
+          </label>
+          <br />
+          <label>
+            Vibe Rating
+            <input type="range" name="ratingVibe" min="1" max="5" />
+          </label>
+          <br />
+          <label>
+            Space Rating
+            <input type="range" name="ratingSpace" min="1" max="5" />
+          </label>
+          <br />
+        </div>
         <label>
-          Coffee Rating
-          <input type="range" name="ratingCoffee" min="1" max="5" />
+          <input
+            className="aboutCafeInput"
+            type="text"
+            name="aboutCafe"
+            placeholder="About the cafe"
+          />
         </label>
-        <label>
-          <input type="range" name="ratingVibe" min="1" max="5" /> Vibe Rating
-        </label>
-        <label>
-          <input type="range" name="ratingSpace" min="1" max="5" /> Space Rating
-        </label>
-        <button type="submit"> Post </button>
+        <button className="createPostFormButton" type="submit">
+          {" "}
+          Post{" "}
+        </button>
       </form>
     </div>
   );

@@ -27,7 +27,7 @@ function UserProfile({ userAuthInfo }) {
   return (
     <div>
       <h1>User Profile</h1>
-      <h2>Posts I've made:</h2>
+      <h3>Posts I've made:</h3>
       {UserCafeData.map((cafe, i) => (
         <CafeCard CafeData={cafe} key={i} />
       ))}

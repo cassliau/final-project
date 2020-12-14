@@ -1,24 +1,27 @@
 @import url(https://fonts.googleapis.com/css?family=Poppins);
 
 .App {
+  color: #4a5568;
   font-family: Poppins;
-  font-size: 22px;
-  max-width: 1040px;
+  font-size: 18px;
+  max-width: 100vw;
   margin: 0 auto;
 }
 
 /* Header */
 
 .Header nav {
+  color: #4a5568;
   cursor: pointer;
   display: flex;
   flex-direction: row;
+  float: right;
   max-width: 1040px;
-  margin: 0 auto;
+  margin: 10px auto;
 }
 
 .Header a {
-  color: black;
+  color: #4a5568;
   font-size: 15px;
   font-weight: bold;
   margin: 10px;
@@ -26,27 +29,58 @@
 }
 
 .Header nav a:hover {
-  color: #4a5568;
+  color: #a07b62;
 }
 
-/* Login */
-.loginForm {
+/* Landing page buttons */
+.navLogin {
+  /* login button nav*/
+  background: #e8e8e8;
+  border-radius: 8px;
+  color: #554134;
+  font-size: 14px;
+  text-decoration: none;
+  margin-right: 10px;
+  padding: 10px 20px 10px 20px;
+}
+
+.navLogin a:hover,
+.navSignUp a:hover {
+  background-color: #4a5568;
+  color: #ffffff;
+  transition: background 0.3s linear 0.1s, color 0.5s linear 0s;
+}
+
+.navSignUp {
+  /* create account button nav*/
+  background: #a07b62;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 14px;
+  text-decoration: none;
+  padding: 10px 20px 10px 20px;
+}
+
+/* Login, signup forms */
+.loginForm,
+.signUpForm {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }
 
-.App h1 {
+.loginForm h1,
+.signUpForm h1 {
   text-align: center;
   color: #4a5568;
   font-size: 30px;
 }
 
-/* Login Form */
-
-.LoginFormButton {
-  /* Login Form Button */
+.LoginFormButton,
+.signUpFormButton {
+  /* Login & Signup Form Button */
   background: #cfab94;
   border: 0;
   border-radius: 5px;
@@ -60,6 +94,7 @@
   margin-top: 70px;
 }
 
+/* Login & Signup Form */
 .SignupForm {
   display: flex;
   align-items: center;
@@ -67,7 +102,8 @@
   line-height: 50px;
 }
 
-.loginEmail {
+.loginEmail,
+.signUpEmail {
   /* Login Form Email Label */
   font-style: normal;
   font-weight: normal;
@@ -76,18 +112,23 @@
   color: #4a5568;
 }
 
-.loginForm input {
+.loginForm input,
+.signUpForm input {
   color: #4a5568;
   font-size: 16px;
+  width: 347px;
+  height: 50px;
 }
 
-.loginPassword {
+.loginPassword,
+.signUpPassword {
   /* Login Form Password Label */
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
   height: 50px;
   color: #4a5568;
+  padding: 10px;
 }
 
 .SignupForm input {
@@ -101,11 +142,76 @@
 
 /* Welcome(Landing Page) */
 
-.LandingPage div {
+.landingWrapper {
   display: flex;
   flex-direction: row;
+  float: left;
+  width: 100%;
 }
 
-.LandingPage h1 {
-  align-content: left;
+.landingContentWrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 50px 10px 50px;
+}
+
+.landingImg {
+  height: 80vh;
+  float: left;
+  margin: 80px;
+}
+.landingTitle {
+  font-size: 40px;
+  color: #a07b62;
+  margin-top: 250px;
+  position: relative;
+}
+
+.landingSubtitles {
+  line-height: 60px;
+  margin-left: 90px;
+}
+
+/* All Posts */
+.Posts {
+  align-items: center;
+  border: 1px solid #e8e8e8;
+  box-sizing: border-box;
+  border-radius: 5px;
+  width: 500px;
+  margin: 50px;
+  padding: 20px;
+}
+
+/* Create post */
+.createPost {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.createPostForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.createPostFormButton {
+  background: #cfab94;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  width: 347px;
+  height: 50px;
+  margin-top: 70px;
+}
+
+.aboutCafeInput {
+  width: 347px;
+  height: 50px;
 }
