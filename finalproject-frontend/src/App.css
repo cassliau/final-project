@@ -44,8 +44,8 @@
   padding: 10px 20px 10px 20px;
 }
 
-.navLogin a:hover,
-.navSignUp a:hover {
+.navLogin:hover,
+.navSignUp:hover {
   background-color: #4a5568;
   color: #ffffff;
   transition: background 0.3s linear 0.1s, color 0.5s linear 0s;
@@ -76,6 +76,7 @@
   text-align: center;
   color: #4a5568;
   font-size: 30px;
+  margin-bottom: 100px;
 }
 
 .LoginFormButton,
@@ -192,9 +193,32 @@
   width: 100%;
 }
 
+.createPostFormInputText {
+  display: flex;
+  flex-direction: row;
+}
+
 .createPostForm {
   display: flex;
   flex-direction: column;
+}
+
+.createPostFormInputText input {
+  width: 300px;
+  height: 50px;
+}
+
+.aboutCafe input {
+  width: 100%;
+  height: 100px;
+}
+
+.createPostForm label {
+  margin-bottom: 20px;
+}
+
+.ratings {
+  margin: 20px;
 }
 
 .createPostFormButton {
@@ -206,12 +230,14 @@
   font-style: normal;
   font-weight: bold;
   font-size: 16px;
-  width: 347px;
-  height: 50px;
+  width: 100px;
+  height: 40px;
   margin-top: 70px;
 }
 
-.aboutCafeInput {
-  width: 347px;
-  height: 50px;
+.createPostFormButton:hover,
+.LoginFormButton:hover,
+.signUpFormButton:hover {
+  background-color: #4a5568;
+  transition: background 0.3s linear 0.1s, color 0.5s linear 0s;
 }

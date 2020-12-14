@@ -34,40 +34,49 @@ function CreatePost({ userAuthInfo }) {
     <div className="createPost">
       <h1>Create Post</h1>
       <form className="createPostForm" onSubmit={(e) => submitPost(e)}>
-        <label>
-          <input type="text" name="author" placeholder="Author" />
-        </label>
-        <label>
-          <input type="text" name="cafeName" placeholder="Cafe Name" />
-        </label>
-        <label>
-          <input type="text" name="neighborhood" placeholder="Neighborhood" />
-        </label>
-        <div className="ratings">
-          <label>
-            Coffee Rating
-            <input type="range" name="ratingCoffee" min="1" max="5" />
-          </label>
-          <br />
-          <label>
-            Vibe Rating
-            <input type="range" name="ratingVibe" min="1" max="5" />
-          </label>
-          <br />
-          <label>
-            Space Rating
-            <input type="range" name="ratingSpace" min="1" max="5" />
-          </label>
-          <br />
+        <div>
+          <div className="createPostFormInputText">
+            <label>
+              <input type="text" name="author" placeholder="Author" />
+            </label>
+            <label>
+              <input type="text" name="cafeName" placeholder="Cafe Name" />
+            </label>
+            <label>
+              <input
+                type="text"
+                name="neighborhood"
+                placeholder="Neighborhood"
+              />
+            </label>
+          </div>
+          <div className="ratings">
+            <label>
+              Coffee Rating
+              <input type="range" name="ratingCoffee" min="1" max="5" />
+            </label>
+            <br />
+            <label>
+              Vibe Rating
+              <input type="range" name="ratingVibe" min="1" max="5" />
+            </label>
+            <br />
+            <label>
+              Space Rating
+              <input type="range" name="ratingSpace" min="1" max="5" />
+            </label>
+            <br />
+          </div>
+          <div>
+            <label className="aboutCafe">
+              <input
+                type="text"
+                name="aboutCafe"
+                placeholder="About the cafe"
+              />
+            </label>
+          </div>
         </div>
-        <label>
-          <input
-            className="aboutCafeInput"
-            type="text"
-            name="aboutCafe"
-            placeholder="About the cafe"
-          />
-        </label>
         <button className="createPostFormButton" type="submit">
           {" "}
           Post{" "}
