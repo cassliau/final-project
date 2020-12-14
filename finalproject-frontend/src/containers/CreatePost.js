@@ -16,7 +16,7 @@ function CreatePost({ userAuthInfo }) {
 
     axios
       .get(
-        `https://localhost:4000/create?&authorID=${authorID}&cafeName=${cafeName}&neighborhood=${neighborhood}&ratingCoffee=${ratingCoffee}&ratingSpace=${ratingSpace}&ratingVibe=${ratingVibe}&`
+        `http://localhost:4000/create?&authorID=${authorID}&cafeName=${cafeName}&neighborhood=${neighborhood}&ratingCoffee=${ratingCoffee}&ratingSpace=${ratingSpace}&ratingVibe=${ratingVibe}`
       )
       .then(function (response) {
         console.log({ SUCCESS: response });

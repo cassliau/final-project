@@ -10,7 +10,7 @@ function Home() {
 
   useEffect(() => {
     axios
-      .get(`https://localhost:3000/all-posts`)
+      .get(`http://localhost:3000/all-posts`)
       .then(function (response) {
         if (response.data) {
           setCafeAPIData(response.data);

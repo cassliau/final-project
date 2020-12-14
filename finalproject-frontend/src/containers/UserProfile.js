@@ -13,7 +13,7 @@ function UserProfile({ userAuthInfo }) {
 
   useEffect(() => {
     axios
-      .get(`https://localhost:4000/posts/${id}`)
+      .get(`http://localhost:4000/posts/${id}`)
       .then(function (response) {
         if (response.data) {
           setUserCafeData(response.data);

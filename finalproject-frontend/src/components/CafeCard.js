@@ -1,6 +1,7 @@
 import React from "react";
 
 function CafeCard({ CafeData }) {
+  console.log("cafe data", CafeData);
   return (
     <div>
       <h2>{CafeData.cafeName}</h2>
