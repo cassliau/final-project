@@ -1,7 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import UserProfileComponent from "../components/UserProfileComponent";
 import axios from "axios";
 
 import CafeCard from "../components/CafeCard";
@@ -14,7 +13,7 @@ function UserProfile({ userAuthInfo }) {
 
   useEffect(() => {
     axios
-      .get(`https://mysterious-depths-41145.herokuapp.com/posts/${id}`)
+      .get(`https://localhost:4000/posts/${id}`)
       .then(function (response) {
         if (response.data) {
           setUserCafeData(response.data);

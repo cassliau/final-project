@@ -35,10 +35,10 @@ firebase.initializeApp(firebaseConfig);
 
 //routes import
 const indexRoute = require("./routes/index.js");
-const createRoute = require("./routes/createPost.js");
+const createPost = require("./routes/createPost.js");
 
 //add more routes for getting & submitting (exercise 4)
 app.use("/", indexRoute);
-app.use("/create", createRoute);
+app.use("/create", createPost);
 
 app.listen(port, () => console.log(`Backend is running at port:${port}`));

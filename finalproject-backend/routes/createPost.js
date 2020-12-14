@@ -25,20 +25,4 @@ router.get("/", (req, res) => {
     });
 });
 
-// router.post("/post", async (req, res) => {
-//   try {
-//     const dbResponse = await cafePosts.add({
-//       cafeName: req.body["cafeName"],
-//       neighborhood: req.body["neighborhood"],
-//       ratingCoffee: req.body["ratingCoffee"],
-//       ratingVibe: req.body["ratingCoffee"],
-//       ratingSpace: req.body["ratingSpace"],
-//     });
-//     res.status(201).send("Success");
-//   } catch (err) {
-//     console.log(err);
-//     res.status(400).send("FAILURE");
-//   }
-// });
-
 module.exports = router;

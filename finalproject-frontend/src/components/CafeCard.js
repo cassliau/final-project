@@ -8,11 +8,11 @@ function CafeCard({ CafeData }) {
       <div>
         <h3>Ratings:</h3>
         <p>
-          Coffee: {CafeData.rating.coffee}
+          Coffee: {CafeData.ratingCoffee}
           <br />
-          Vibe: {CafeData.rating.vibe}
+          Vibe: {CafeData.ratingVibe}
           <br />
-          Space: {CafeData.rating.space}
+          Space: {CafeData.ratingSpace}
         </p>
       </div>
     </div>

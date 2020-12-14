@@ -4,6 +4,7 @@ import axios from "axios";
 function CreatePost({ userAuthInfo }) {
   function submitPost(e) {
     e.preventDefault();
+    const author = e.currentTarget.author.value;
     const authorID = userAuthInfo.uid;
     const cafeName = e.currentTarget.cafeName.value;
     const neighborhood = e.currentTarget.neighborhood.value;
@@ -11,9 +12,11 @@ function CreatePost({ userAuthInfo }) {
     const ratingSpace = e.currentTarget.ratingSpace.value;
     const ratingVibe = e.currentTarget.ratingVibe.value;
 
+    console.log(e.currentTarget);
+
     axios
       .get(
-        `https://mysterious-depths-41145.herokuapp.com/create?&authorID=${authorID}&cafeName=${cafeName}&neighborhood=${neighborhood}&ratingCoffee=${ratingCoffee}&ratingSpace=${ratingSpace}&ratingVibe=${ratingVibe}`
+        `https://localhost:4000/create?&authorID=${authorID}&cafeName=${cafeName}&neighborhood=${neighborhood}&ratingCoffee=${ratingCoffee}&ratingSpace=${ratingSpace}&ratingVibe=${ratingVibe}&`
       )
       .then(function (response) {
         console.log({ SUCCESS: response });
@@ -27,6 +30,9 @@ function CreatePost({ userAuthInfo }) {
     <div>
       <h1>Create Post</h1>
       <form onSubmit={(e) => submitPost(e)}>
+        <label>
+          <input type="text" name="author" placeholder="Author" />
+        </label>
         <label>
           <input type="text" name="cafeName" placeholder="Cafe Name" />
         </label>
