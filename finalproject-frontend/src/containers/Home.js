@@ -24,10 +24,12 @@ function Home() {
 
   return (
     <div>
-      <h1>All Cafe Posts</h1>
-      {cafeAPIData.map((cafe, i) => (
-        <CafeCard CafeData={cafe} key={i} />
-      ))}
+      <h1 className="allCafePosts">All Cafe Posts</h1>
+      <div className="cafeCard">
+        {cafeAPIData.map((cafe, i) => (
+          <CafeCard CafeData={cafe} key={i} />
+        ))}
+      </div>
     </div>
   );
 }

@@ -14,12 +14,13 @@ function CreatePost({ userAuthInfo }) {
     const ratingCoffee = e.currentTarget.ratingCoffee.value;
     const ratingSpace = e.currentTarget.ratingSpace.value;
     const ratingVibe = e.currentTarget.ratingVibe.value;
+    const aboutCafe = e.currentTarget.aboutCafe.value;
 
     console.log(e.currentTarget);
 
     axios
       .get(
-        `https://mysterious-depths-41145.herokuapp.com/create?&author=${author}&authorID=${authorID}&cafeName=${cafeName}&neighborhood=${neighborhood}&ratingCoffee=${ratingCoffee}&ratingSpace=${ratingSpace}&ratingVibe=${ratingVibe}`
+        `https://mysterious-depths-41145.herokuapp.com/create?&author=${author}&authorID=${authorID}&cafeName=${cafeName}&neighborhood=${neighborhood}&ratingCoffee=${ratingCoffee}&ratingSpace=${ratingSpace}&ratingVibe=${ratingVibe}&aboutCafe=${aboutCafe}`
       )
       .then(function (response) {
         history.push("/home");
@@ -68,13 +69,12 @@ function CreatePost({ userAuthInfo }) {
             <br />
           </div>
           <div>
-            <label className="aboutCafe">
-              <input
-                type="text"
-                name="aboutCafe"
-                placeholder="About the cafe"
-              />
-            </label>
+            <textarea
+              name="aboutCafe"
+              placeholder="About the cafe"
+              cols="120"
+              rows="8"
+            ></textarea>
           </div>
         </div>
         <button className="createPostFormButton" type="submit">

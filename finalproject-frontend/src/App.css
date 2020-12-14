@@ -1,11 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Poppins);
 
 .App {
-  color: #4a5568;
   font-family: Poppins;
-  font-size: 18px;
   max-width: 100vw;
-  margin: 0 auto;
+  margin: 50px;
 }
 
 /* Header */
@@ -18,6 +16,7 @@
   float: right;
   max-width: 1040px;
   margin: 10px auto;
+  padding: 10px;
 }
 
 .Header a {
@@ -174,12 +173,17 @@
 }
 
 /* All Posts */
+
+.allCafePosts {
+  padding: 10px;
+}
+
 .Posts {
   align-items: center;
-  border: 1px solid #e8e8e8;
+  border: 1px solid #4a5568;
   box-sizing: border-box;
   border-radius: 5px;
-  width: 500px;
+  width: 95%;
   margin: 50px;
   padding: 20px;
 }
@@ -206,11 +210,6 @@
 .createPostFormInputText input {
   width: 300px;
   height: 50px;
-}
-
-.aboutCafe input {
-  width: 100%;
-  height: 100px;
 }
 
 .createPostForm label {
