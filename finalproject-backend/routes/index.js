@@ -25,6 +25,8 @@ router.get(`/posts/:id`, (req, res) => {
       querySnapshot.forEach((doc) => {
         cafePostsArray.push(doc.data());
       });
+      //sort array
+      cafePostsArray.sort((a, b) => b.timeStamp - a.timeStamp);
       //return array
       return res.send(cafePostsArray);
     })
@@ -49,6 +51,9 @@ router.get(`/all-posts`, (req, res) => {
       querySnapshot.forEach((doc) => {
         cafePostsArray.push(doc.data());
       });
+      //sort array
+      console.log(cafePostsArray);
+      cafePostsArray.sort((a, b) => b.timeStamp - a.timeStamp);
       //return array
       return res.send(cafePostsArray);
     })

@@ -12,9 +12,10 @@ router.get("/", (req, res) => {
   const idFromCafeName = queryParams.cafeName
     .replace(/\s+/g, "-")
     .toLowerCase();
-
+  console.log(queryParams);
+  queryParams.timeStamp = new Date().valueOf();
   cafePosts
-    .doc(idFromCafeName) //allow you to create new posts or update them....
+    .doc(idFromCafeName + "-" + queryParams.authorID) //allow you to create new posts or update them....
     .set(queryParams)
     .then(function (doc) {
       res.send("successful submission");

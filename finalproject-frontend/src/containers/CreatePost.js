@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
-import { Route, BrowserRouter as Router, Redirect } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
 function CreatePost({ userAuthInfo }) {
+  const [coffeeRating, setCoffeeRating] = useState(5);
+  const [vibeRating, setVibeRating] = useState(5);
+  const [spaceRating, setSpaceRating] = useState(5);
   const history = useHistory();
   function submitPost(e) {
     e.preventDefault();
@@ -16,18 +18,18 @@ function CreatePost({ userAuthInfo }) {
     const ratingVibe = e.currentTarget.ratingVibe.value;
     const aboutCafe = e.currentTarget.aboutCafe.value;
 
-    console.log(e.currentTarget);
+    // console.log(e.currentTarget);
 
     axios
       .get(
-        `https://mysterious-depths-41145.herokuapp.com/create?&author=${author}&authorID=${authorID}&cafeName=${cafeName}&neighborhood=${neighborhood}&ratingCoffee=${ratingCoffee}&ratingSpace=${ratingSpace}&ratingVibe=${ratingVibe}&aboutCafe=${aboutCafe}`
+        `http://localhost:4000/create?&author=${author}&authorID=${authorID}&cafeName=${cafeName}&neighborhood=${neighborhood}&ratingCoffee=${ratingCoffee}&ratingSpace=${ratingSpace}&ratingVibe=${ratingVibe}&aboutCafe=${aboutCafe}`
       )
       .then(function (response) {
         history.push("/home");
-        console.log({ SUCCESS: response });
+        // console.log({ SUCCESS: response });
       })
       .catch(function (error) {
-        console.log("Error creating post", error);
+        // console.log("Error creating post", error);
       });
   }
 
@@ -38,33 +40,59 @@ function CreatePost({ userAuthInfo }) {
         <div>
           <div className="createPostFormInputText">
             <label>
-              <input type="text" name="author" placeholder="Author" />
+              Author
+              <input type="text" name="author" />
             </label>
             <label>
-              <input type="text" name="cafeName" placeholder="Cafe Name" />
+              Cafe Name
+              <input type="text" name="cafeName" />
             </label>
             <label>
-              <input
-                type="text"
-                name="neighborhood"
-                placeholder="Neighborhood"
-              />
+              Neighborhood
+              <input type="text" name="neighborhood" />
             </label>
           </div>
           <div className="ratings">
             <label>
-              Coffee Rating
-              <input type="range" name="ratingCoffee" min="1" max="5" />
+              You are rating the coffee <br />
+              <input
+                type="range"
+                name="ratingCoffee"
+                min="1"
+                max="5"
+                onChange={(e) => setCoffeeRating(e.target.value)}
+              />
+              <div>
+                <strong>{coffeeRating} </strong> out of 5
+              </div>
             </label>
             <br />
             <label>
-              Vibe Rating
-              <input type="range" name="ratingVibe" min="1" max="5" />
+              You are rating the vibe <br />
+              <input
+                type="range"
+                name="ratingVibe"
+                min="1"
+                max="5"
+                onChange={(e) => setVibeRating(e.target.value)}
+              />
+              <div>
+                <strong>{vibeRating} </strong> out of 5
+              </div>
             </label>
             <br />
             <label>
-              Space Rating
-              <input type="range" name="ratingSpace" min="1" max="5" />
+              You are rating the space <br />
+              <input
+                type="range"
+                name="ratingSpace"
+                min="1"
+                max="5"
+                onChange={(e) => setSpaceRating(e.target.value)}
+              />
+              <div>
+                <strong>{spaceRating} </strong> out of 5
+              </div>
             </label>
             <br />
           </div>

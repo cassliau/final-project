@@ -29,6 +29,7 @@
 
 .Header nav a:hover {
   color: #a07b62;
+  transition: background 0.3s linear 0.1s, color 0.25s linear 0s;
 }
 
 /* Landing page buttons */
@@ -179,13 +180,12 @@
 }
 
 .Posts {
-  align-items: center;
   border: 1px solid #4a5568;
   box-sizing: border-box;
   border-radius: 5px;
   width: 95%;
   margin: 50px;
-  padding: 20px;
+  padding: 50px;
 }
 
 /* Create post */
@@ -239,4 +239,26 @@
 .signUpFormButton:hover {
   background-color: #4a5568;
   transition: background 0.3s linear 0.1s, color 0.5s linear 0s;
+}
+
+.timeStamp {
+  font-size: 13px;
+  float: right;
+}
+
+.authorName {
+  font-size: 14px;
+  font-weight: 200;
+  margin-left: 10px;
+}
+
+.cafeName {
+  text-transform: uppercase;
+}
+
+.ratings,
+.neighborhood,
+.aboutCafe,
+.postContent {
+  margin: 20px;
 }
