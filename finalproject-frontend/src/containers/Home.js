@@ -10,7 +10,7 @@ function Home() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/all-posts`)
+      .get(`https://mysterious-depths-41145.herokuapp.com/all-posts`)
       .then(function (response) {
         if (response.data) {
           setCafeAPIData(response.data);
