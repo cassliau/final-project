@@ -20,7 +20,7 @@ function Home() {
         console.log("error", error);
       });
   }, []);
-  console.log({ cafeAPIData });
+  // console.log({ cafeAPIData });
 
   return (
     <div>

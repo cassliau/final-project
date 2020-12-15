@@ -20,7 +20,7 @@ router.get(`/posts/:id`, (req, res) => {
     .where("authorID", "==", queryId)
     .get()
     .then((querySnapshot) => {
-      console.log("querySnapshot", querySnapshot);
+      // console.log("querySnapshot", querySnapshot);
       //loop through query snapshot and push into array
       querySnapshot.forEach((doc) => {
         cafePostsArray.push(doc.data());
@@ -44,7 +44,7 @@ router.get(`/all-posts`, (req, res) => {
   cafePosts
     .get()
     .then((querySnapshot) => {
-      console.log("querySnapshot", querySnapshot);
+      // console.log("querySnapshot", querySnapshot);
       //loop through query snapshot and push into array
       querySnapshot.forEach((doc) => {
         cafePostsArray.push(doc.data());

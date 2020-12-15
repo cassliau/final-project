@@ -152,18 +152,18 @@
 .landingContentWrapper {
   display: flex;
   flex-direction: column;
-  margin: 10px 50px 10px 50px;
+  margin: 10px 50px 10px 100px;
 }
 
 .landingImg {
   height: 80vh;
   float: left;
-  margin: 80px;
+  margin: 0 20px 0 0;
 }
 .landingTitle {
   font-size: 40px;
   color: #a07b62;
-  margin-top: 250px;
+  margin-top: 200px;
   position: relative;
 }
 
